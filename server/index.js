@@ -2,6 +2,8 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 
+const { PORT = 3000 } = process.env;
+
 const app = express();
 
 const users = [
@@ -57,6 +59,6 @@ app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("I'm alive");
 });
