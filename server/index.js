@@ -1,5 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 const app = express();
 
@@ -51,8 +52,9 @@ app.get("/api/users/logout", (req, res) => {
   res.sendStatus(200);
 })
 
-app.use("*", () => {
-
+app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 app.listen(3000, () => {
