@@ -33,7 +33,8 @@ app.post("/api/users/login", (req, res) => {
     httpOnly: true,
     maxAge: 3600000,
     domain: "calm-wildwood-06412-9b69e89f8a37.herokuapp.com",
-    sameSite: "none"
+    sameSite: "none",
+    secure: true
   });
   res.sendStatus(200);
 });
