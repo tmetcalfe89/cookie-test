@@ -30,7 +30,6 @@ app.post("/api/users/login", (req, res) => {
   }
 
   res.cookie("authToken", foundUser.id, {
-    path: "/",
     httpOnly: true,
     maxAge: 3600000
   });
