@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const cors = require("cors");
 
 const { PORT = 3000 } = process.env;
 
@@ -16,7 +17,8 @@ const users = [
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(cors());
 
 app.post("/api/users/login", (req, res) => {
   const credentials = req.body;
