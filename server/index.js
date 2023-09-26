@@ -18,7 +18,10 @@ const users = [
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+  origin: 'https://tmetcalfe89.github.io',
+  credentials: true,
+}));
 
 app.post("/api/users/login", (req, res) => {
   const credentials = req.body;
