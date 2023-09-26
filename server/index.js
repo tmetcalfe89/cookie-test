@@ -31,8 +31,7 @@ app.post("/api/users/login", (req, res) => {
 
   res.cookie("authToken", foundUser.id, {
     httpOnly: true,
-    maxAge: 3600000,
-    domain: "https://calm-wildwood-06412-9b69e89f8a37.herokuapp.com/"
+    maxAge: 3600000
   });
   res.sendStatus(200);
 });
