@@ -36,7 +36,8 @@ app.post("/api/users/login", (req, res) => {
     httpOnly: true,
     maxAge: 3600000,
     sameSite: "none",
-    secure: true
+    secure: true,
+    domain: "calm-wildwood-06412-9b69e89f8a37.herokuapp.com"
   });
   res.sendStatus(200);
 });
@@ -56,7 +57,7 @@ app.get("/api/users/check", (req, res) => {
 })
 
 app.get("/api/users/logout", (req, res) => {
-  res.clearCookie("authToken");
+  res.clearCookie("authToken", { domain: "calm-wildwood-06412-9b69e89f8a37.herokuapp.com" });
   res.sendStatus(200);
 })
 
